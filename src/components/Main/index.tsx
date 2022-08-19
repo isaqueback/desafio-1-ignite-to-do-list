@@ -1,5 +1,13 @@
+import { Search } from './Search'
+import { Tasks } from './Tasks'
+
+import styles from './styles.module.scss'
+
 export function Main() {
     return (
-        <h1>Eu sou o principal!</h1>
+        <main className={styles.principal}>
+            <Search />
+            <Tasks />
+        </main>
     )
 }
