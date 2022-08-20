@@ -9,7 +9,7 @@
     margin-top: -1.6875rem;
     
     input[type=text] {
-        width: 39.875rem;
+        max-width: 39.875rem;
         border-radius: 8px;
         outline: none;
         border: 1px solid $gray-700;
@@ -23,7 +23,7 @@
         }
     }
 
-    button[type=submit] {
+    .submitButton {
         border-radius: 8px;
         border: 0;
         font-size: 0.875rem;
@@ -34,9 +34,36 @@
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+        cursor: pointer;
+        
+        &.empty {
+            opacity: 0.7;
+            cursor: not-allowed;
+            
+            &:hover {
+                background-color: $blue-500;
+            }
+        }
 
         &:hover {
             background-color: $blue-200;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .search {
+        grid-template-columns: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        gap: 1rem;
+
+        input[type=text] {
+            height: 3rem;
+        }
+
+        .submitButton {
+            height: 3rem;
         }
     }
 }
