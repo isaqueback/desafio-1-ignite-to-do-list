@@ -1,22 +1,26 @@
+// import { NoTasks } from './NoTasks'
+import { Task } from './Task'
+
 import styles from './styles.module.scss'
 
 export function Tasks() {
     return (
         <div className={styles.tasks}>
             <header>
-                <div>
+                <div className={styles.createdTasks}>
                     <span>Tarefas criadas</span>
                     <span>0</span>
                 </div>
 
-                <div>
+                <div className={styles.concludedTasks}>
                     <span>Concluídas</span>
-                    <span>0</span>
+                    <span>20 de 500</span>
                 </div>
             </header>
 
-            <div className='tasksList'>
-                Tarefas
+            <div className={styles.taskList}>
+                {/* <NoTasks /> */}
+                <Task />
             </div>
         </div>
     )

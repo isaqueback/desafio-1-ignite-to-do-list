@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .tasks {
     width: 100%;
     margin-top: 4rem;
@@ -5,5 +7,33 @@
     header {
         display: flex;
         justify-content: space-between;
+        font-size: 0.875rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+
+        .createdTasks {
+            color: $blue-200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .concludedTasks {
+            color: $blue-300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        span:nth-child(2), span:last-child {
+            background-color: $gray-400;
+            color: $gray-200;
+            padding: 0.25rem 0.5rem;
+            margin-left: 0.5rem;
+            border-radius: 62.4375rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
