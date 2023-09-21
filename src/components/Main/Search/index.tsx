@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import { PlusCircle } from 'phosphor-react'
-import { ChangeEvent, FormEvent, FunctionComponent, KeyboardEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 interface SearchProps {
     onAddTask: (content: string) => void

@@ -4,14 +4,14 @@ import { useState } from 'react'
 
 import styles from './styles.module.scss'
 
-interface Task {
+export interface TaskType {
     id: number;
     content: string;
     isChecked: boolean;
 }
 
 export function Main() {
-    const [tasks, setTasks] = useState<Task[]>([])
+    const [tasks, setTasks] = useState<TaskType[]>([])
     const [countId, setCountId] = useState(0)
 
     function deleteTask(taskId: number) {
@@ -38,10 +38,10 @@ export function Main() {
 
     function toggleChecking(id: number) {
         setTasks(tasks => {
-            let changedTasks: Task[] = []
+            const changedTasks = tasks.map(task => {
+                if (task.id === id) return { ...task, isChecked: !task.isChecked }
 
-            tasks.forEach(task => {
-                task.id === id ? changedTasks.push({...task, isChecked: !task.isChecked}) : changedTasks.push(task)
+                return task
             })
 
             return changedTasks

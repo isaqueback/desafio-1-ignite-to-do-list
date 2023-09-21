@@ -1,22 +1,16 @@
 import { NoTasks } from './NoTasks'
 import { Task } from './Task'
 import styles from './styles.module.scss'
-import { useState } from 'react';
-
-interface Task {
-    id: number;
-    content: string;
-    isChecked: boolean;
-}
+import { TaskType } from '../index'
 
 interface TasksProps {
-    tasks: Task[];
+    tasks: TaskType[];
     deleteTask: (taskId: number) => void;
     toggleChecking: (taskId: number) => void;
 }
 
 export function Tasks({ tasks, deleteTask, toggleChecking }: TasksProps) {
-    const concludedTaskQuantity = tasks.filter(task => task.isChecked === true).length
+    const concludedTaskQuantity = tasks.filter(task => task.isChecked).length
 
     return (
         <div className={styles.tasks}>
@@ -36,7 +30,7 @@ export function Tasks({ tasks, deleteTask, toggleChecking }: TasksProps) {
                 {
                     tasks.length === 0 ?
                         <NoTasks /> : (
-                            tasks.map((task: Task) => {
+                            tasks.map((task: TaskType) => {
                                 return <Task key={task.id} task={task} onDeleteTask={deleteTask} onToggleChecking={toggleChecking} />
                             })
                         )

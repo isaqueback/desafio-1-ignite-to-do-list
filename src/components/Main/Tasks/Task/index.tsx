@@ -1,15 +1,9 @@
 import { Trash, Circle, CheckCircle } from 'phosphor-react'
-import { useState } from 'react'
 import styles from './styles.module.scss'
-
-interface Task {
-    id: number;
-    content: string;
-    isChecked: boolean;
-}
+import { TaskType } from '../../index'
 
 interface TaskProps {
-    task: Task;
+    task: TaskType;
     onDeleteTask: (taskId: number) => void;
     onToggleChecking: (taskId: number) => void;
 }
@@ -27,9 +21,9 @@ export function Task({ task, onDeleteTask, onToggleChecking }: TaskProps) {
     return (
         <div className={styles.task}>
             {
-                !task.isChecked ?
-                    <Circle className={styles.checkBoxUnchecked} size={19} onClick={handleToggleChecking} /> :
-                    <CheckCircle className={styles.checkBoxChecked} size={19} onClick={handleToggleChecking} />
+                task.isChecked ?
+                    <CheckCircle className={styles.checkBoxChecked} size={19} onClick={handleToggleChecking} /> :
+                    <Circle className={styles.checkBoxUnchecked} size={19} onClick={handleToggleChecking} />
             }
 
             <p className={task.isChecked ? styles.checked : ''}>{task.content}</p>
